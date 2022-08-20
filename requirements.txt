@@ -1,0 +1,2 @@
+binance-connector==1.11.0
+python-telegram-bot
