@@ -1,4 +1,3 @@
-from ast import Global
 import logging
 
 from binance.spot import Spot
@@ -84,15 +83,7 @@ def get_alert(update, context):
         alert = context.user_data["alertnum"]
         rangealerts = int(update.message.text) 
         price = float(url.ticker_price(symbol).get('price'))
-        # price_round = 0.1
-        # price_rounded = price_round * round(price/price_round)
-        # alerts_rounded = price_round * round(alert/price_round)
-        # if(alerts_rounded > price_rounded):
-        #     if(alerts_rounded <= price_rounded):
-        #         update.message.reply_text(price_rounded, " !!!!!")
-        # else:
-        #     if(alerts_rounded >= price_rounded):
-        #         update.message.reply_text(price_rounded, " !!!!!")
+
         while rangealerts > 0:
             if(alert > price):
                 while True:
@@ -154,7 +145,7 @@ def main():
     update = telegram.Update
     
     # Токен бота
-    bot = Updater(token=open("data/token.txt", "r").read(), use_context=True)
+    bot = Updater(token="your token", use_context=True)
     
     dispatcher = bot.dispatcher
 
